@@ -75,7 +75,7 @@ module.exports.applyEager = applyEager;
 const applyRequire = function(filter = {}, builder) {
   if (Object.keys(filter).length === 0) return builder;
   const Model = builder._modelClass;
-  const idColumn = `${Model.tableName}.${Model.idColumn}`;
+  const idColumn = builder.fullIdColumnFor(Model);
 
   const filterQuery = Model
     .query()
